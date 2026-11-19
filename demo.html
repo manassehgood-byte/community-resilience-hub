@@ -20,8 +20,8 @@
 
   <main>
     <section>
-      <h2>Simple Functional Demo</h2>
-      <p>This page shows a basic interaction. It simulates checking the status of the water station and logging a simple request. Pure HTML, CSS and a little JavaScript — no frameworks.</p>
+      <h2>Functional Demo</h2>
+      <p>Check the water station status or submit a simple request.</p>
     </section>
 
     <section class="card">
@@ -67,7 +67,7 @@
       event.preventDefault();
       var name = document.getElementById("name").value;
       var need = document.getElementById("need").value;
-      var text = "Thank you, " + name + ". Your request for " + need + " has been recorded (demo only). A community operator would follow up.";
+      var text = "Thank you, " + name + ". Your request for " + need + " has been recorded. A community operator will follow up.";
       document.getElementById("message").textContent = text;
       return false;
     }
