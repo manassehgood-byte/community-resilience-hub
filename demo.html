@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo — Community Resilience Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Community Resilience Hub</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="solution.html">Solution</a>
+      <a href="sdgs.html">SDGs</a>
+      <a href="users.html">Users</a>
+      <a href="demo.html">Demo</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Simple Functional Demo</h2>
+      <p>This page shows a basic interaction. It simulates checking the status of the water station and logging a simple request. Pure HTML, CSS and a little JavaScript — no frameworks.</p>
+    </section>
+
+    <section class="card">
+      <h3>Water Station Status</h3>
+      <p id="status">Click the button to check status.</p>
+      <button onclick="checkStatus()">Check Status</button>
+    </section>
+
+    <section class="card">
+      <h3>Request Information</h3>
+      <form onsubmit="return sendRequest(event)">
+        <label for="name">Your name</label><br>
+        <input type="text" id="name" required placeholder="e.g. Amina"><br><br>
+        <label for="need">What do you need?</label><br>
+        <select id="need">
+          <option value="water">Water point information</option>
+          <option value="garden">Join growing programme</option>
+          <option value="work">Training for local role</option>
+        </select><br><br>
+        <button type="submit">Submit request</button>
+      </form>
+      <p id="message"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Global Citizenship Project • SDG 1 • SDG 2 • SDG 6</p>
+  </footer>
+
+  <script>
+    function checkStatus() {
+      var statuses = [
+        "Tank level: OK — water available",
+        "Tank level: Low — operator notified",
+        "Solar status: Charging normally",
+        "Flow rate: Normal"
+      ];
+      var random = Math.floor(Math.random() * statuses.length);
+      document.getElementById("status").textContent = statuses[random];
+    }
+
+    function sendRequest(event) {
+      event.preventDefault();
+      var name = document.getElementById("name").value;
+      var need = document.getElementById("need").value;
+      var text = "Thank you, " + name + ". Your request for " + need + " has been recorded (demo only). A community operator would follow up.";
+      document.getElementById("message").textContent = text;
+      return false;
+    }
+  </script>
+</body>
+</html>
