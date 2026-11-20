@@ -21,7 +21,7 @@
   <main>
     <section>
       <h2>Functional Demo</h2>
-      <p>Check the water station status or submit a simple request.</p>
+      <p>Check the water station status, submit a request, or report a problem.</p>
     </section>
 
     <section class="card">
@@ -44,6 +44,23 @@
         <button type="submit">Submit request</button>
       </form>
       <p id="message"></p>
+    </section>
+
+    <section class="card">
+      <h3>Report an issue</h3>
+      <p>A resident can report a problem with the water point, garden or something else. The report is sent to the local operator.</p>
+      <form onsubmit="return submitReport(event)">
+        <label for="issue-type">What needs attention?</label><br>
+        <select id="issue-type">
+          <option value="Water point">Water point</option>
+          <option value="Garden">Garden</option>
+          <option value="Other">Other</option>
+        </select><br><br>
+        <label for="description">Description</label><br>
+        <textarea id="description" rows="3" placeholder="Describe the problem here..." required></textarea><br><br>
+        <button type="submit">Submit report</button>
+      </form>
+      <p id="report-message"></p>
     </section>
   </main>
 
@@ -69,6 +86,15 @@
       var need = document.getElementById("need").value;
       var text = "Thank you, " + name + ". Your request for " + need + " has been recorded. A community operator will follow up.";
       document.getElementById("message").textContent = text;
+      return false;
+    }
+
+    function submitReport(event) {
+      event.preventDefault();
+      var type = document.getElementById("issue-type").value;
+      var desc = document.getElementById("description").value;
+      document.getElementById("report-message").textContent = "Report received for " + type + ". The operator has been notified.";
+      document.getElementById("description").value = "";
       return false;
     }
   </script>
