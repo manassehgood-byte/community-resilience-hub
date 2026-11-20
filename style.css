@@ -74,9 +74,17 @@ ul, ol {
   padding-left: 1.25rem;
 }
 
-button, input, select {
+button, input, select, textarea {
   font-size: 1rem;
   padding: 0.4rem 0.75rem;
+}
+
+textarea {
+  width: 100%;
+  max-width: 100%;
+  font-family: inherit;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 button {
@@ -100,7 +108,7 @@ footer {
   margin-top: 2rem;
 }
 
-#message {
+#message, #report-message {
   margin-top: 1rem;
   font-weight: bold;
   color: #1a3a5c;
