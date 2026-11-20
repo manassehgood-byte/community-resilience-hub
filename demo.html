@@ -5,6 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Demo — Community Resilience Hub</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* soft colours only for this page */
+    .card-status {
+      background: #e8f5e9;
+      border: 1px solid #c8e6c9;
+    }
+    .card-name {
+      background: #e3f2fd;
+      border: 1px solid #bbdefb;
+    }
+    .card-report {
+      background: #fff8e1;
+      border: 1px solid #ffecb3;
+    }
+    .hub-title {
+      background: #1a3a5c;
+      color: white;
+      text-align: center;
+      padding: 0.7rem;
+      border-radius: 8px;
+      margin-bottom: 1.2rem;
+      font-size: 1.2rem;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -19,21 +43,17 @@
   </header>
 
   <main>
-    <section>
-      <h2>Functional Demo</h2>
-      <p>Check the water station status, submit a request, or report a problem.</p>
-    </section>
+    <div class="hub-title">HubConnect</div>
 
-    <section class="card">
-      <h3>Water Station Status</h3>
+    <section class="card card-status">
+      <h3>Water point • Operational</h3>
       <p id="status">Click the button to check status.</p>
       <button onclick="checkStatus()">Check Status</button>
     </section>
 
-    <section class="card">
-      <h3>Request Information</h3>
+    <section class="card card-name">
+      <h3>Enter your name</h3>
       <form onsubmit="return sendRequest(event)">
-        <label for="name">Your name</label><br>
         <input type="text" id="name" required placeholder="e.g. Amina"><br><br>
         <label for="need">What do you need?</label><br>
         <select id="need">
@@ -46,9 +66,8 @@
       <p id="message"></p>
     </section>
 
-    <section class="card">
-      <h3>Report an issue</h3>
-      <p>A resident can report a problem with the water point, garden or something else. The report is sent to the local operator.</p>
+    <section class="card card-report">
+      <h3>Report a problem</h3>
       <form onsubmit="return submitReport(event)">
         <label for="issue-type">What needs attention?</label><br>
         <select id="issue-type">
